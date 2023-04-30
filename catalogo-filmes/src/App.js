@@ -1,14 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import Catalogo from './components/Catalogo';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Catalogo />
-      </header>
+  <Router>
+    <div className='App'>
+      <ul>
+        <li> <Link to='/'>Home</Link> </li>
+        <button>Botão Cadastrar</button>
+      </ul>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
     </div>
+  </Router>
   );
 }
 
