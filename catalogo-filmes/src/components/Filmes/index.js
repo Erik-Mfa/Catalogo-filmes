@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Assistido from '../Assistido/index';
+import './filmes.css';
 
 export default function Filmes() {
   const [listFilmes, setlistFilmes] = useState(null)
@@ -14,37 +16,19 @@ export default function Filmes() {
     return <p>Carregando...</p>;
   }
 
-  function Assitido({ javisto }) {
-    if (javisto) {
-      return <p>Assistido ✔</p>;
-    }
-    return <p className="item">Não assistido</p>;
-  }
-
   return (
     <div className="container text-center">
-    <div className="row">
+    <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
       {listFilmes.map((filme, i) => (
         <div className="col" key={i}>
           <div className="card">
-            <img src={'/assets/images/' + filme.foto} alt={filme.nome} className="card-img-top" />
+            <img src={filme.poster} className="card-img-top img-thumbnail" />
             <div className="card-body">
-              <h5 className="card-title">{filme.nome} ({filme.ano}) </h5>
-              <p>Sinopse</p>
-              <p className="card-text">{filme.descricao}</p>
-              <p>{filme.duracao}</p>
-              <p>{filme.genero}</p>
+              <h6 className="card-title">{filme.titulo} ({filme.ano}) </h6>
               <p>{filme.nota}</p>
-              <Assitido
+              <Assistido
                   javisto={filme.assistido}
                 />
-              <a
-                href={`/detalhes/${filme.nome}`}
-              >
-                <div className="btn btn-primary">
-                  Detalhes
-                </div>
-              </a>
             </div>
           </div>
 

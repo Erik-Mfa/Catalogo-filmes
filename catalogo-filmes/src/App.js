@@ -6,10 +6,11 @@ function App() {
   return (
   <Router>
     <div className='App'>
+
       <ul>
-        <li> <Link to='/'>Home</Link> </li>
-        <button>Botão Cadastrar</button>
+        <li> <Link to='/'>Home</Link> </li>        
       </ul>
+
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
